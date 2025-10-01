@@ -27,6 +27,8 @@ export interface WeatherData {
     }
     sys: {
         country: string;
+        sunrise: number;
+        sunset: number;
     };
     name: string;
     dt: number;

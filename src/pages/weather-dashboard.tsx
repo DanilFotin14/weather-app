@@ -5,12 +5,16 @@ import { useGeolocation } from "@/hooks/use-geolocation";
 import { AlertTriangle, RefreshCw } from "lucide-react";
 import CurrentWeather from "@/components/CurrentWeather";
 import HourlyTemperature from "@/components/HourlyTemperature";
+import WeatherDetails from "@/components/WeatherDetails";
+
 import React from "react";
+
 import {
   useReverseGeocodeQuery,
   useWeatherQuery,
   useForecastQuery,
 } from "@/hooks/use-weather";
+
 export default function WeatherDashboard() {
   const {
     coordinates,
@@ -128,7 +132,7 @@ export default function WeatherDashboard() {
         </div>
 
         <div>
-          {/* details */}
+          <WeatherDetails data={weatherQuery.data} />
           {/* forecast */}
         </div>
       </div>
