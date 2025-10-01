@@ -27,10 +27,10 @@ export default function WeatherDashboard() {
 
   React.useEffect(() => {
     if (coordinates) {
-      console.log("Coordinates:", coordinates);
-      console.log("Location query:", locationQuery);
-      console.log("Weather query:", weatherQuery);
-      console.log("Forecast query:", forecastQuery);
+      //   console.log("Coordinates:", coordinates);
+      //   console.log("Location query:", locationQuery);
+      //   console.log("Weather query:", weatherQuery);
+      //   console.log("Forecast query:", forecastQuery);
     }
   }, [coordinates, locationQuery]);
 
@@ -119,8 +119,7 @@ export default function WeatherDashboard() {
       </div>
 
       <div className="grid gap-6">
-        <div>
-            
+        <div className="flex flex-col lg:flex-row gap-4">
           <CurrentWeather
             data={weatherQuery.data}
             locationName={locationName}
