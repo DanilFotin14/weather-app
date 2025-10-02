@@ -90,7 +90,7 @@ export default function FavoriteCities() {
 
   return (
     <>
-      <h1 className="text-xl font-bold tracking-tight">Favorites</h1>
+      <h1 className="text-xl font-bold tracking-tight mb-8">Favorites</h1>
       <ScrollArea className="w-full pb-4">
         <div className="flex gap-4">
           {favorites.map((city) => (
