@@ -25,15 +25,15 @@ export default function HourlyTemperature({ data }: HourlyTemperatureProps) {
       <CardHeader>
         <CardTitle>Hourly Temperature</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-0 pr-10">
         <div className="h-[200px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               data={chartData}
               margin={{
                 top: 5,
-                right: 30,
-                left: 20,
+                right: 5,
+                left: 5,
                 bottom: 5,
               }}
             >
