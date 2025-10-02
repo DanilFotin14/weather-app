@@ -58,7 +58,7 @@ export function useGeolocation() {
         }
 
         setLocationData({
-          error: null,
+          error: errorMessage,
           isLoading: false,
           coordinates: null,
         });
