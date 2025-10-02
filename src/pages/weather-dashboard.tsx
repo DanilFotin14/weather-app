@@ -1,19 +1,19 @@
-import WeatherSkeleton from "@/components/loading-skeleton";
+import { AlertTriangle, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { useGeolocation } from "@/hooks/use-geolocation";
-import { AlertTriangle, RefreshCw } from "lucide-react";
+import WeatherSkeleton from "@/components/LoadingSkeleton";
 import CurrentWeather from "@/components/CurrentWeather";
 import HourlyTemperature from "@/components/HourlyTemperature";
 import WeatherDetails from "@/components/WeatherDetails";
-
+import WeatherForecast from "@/components/WeatherForecast";
+import FavoriteCities from "@/components/FavoriteCities";
 import React from "react";
-
 import {
   useReverseGeocodeQuery,
   useWeatherQuery,
   useForecastQuery,
 } from "@/hooks/use-weather";
+import { useGeolocation } from "@/hooks/use-geolocation";
 
 export default function WeatherDashboard() {
   const {
@@ -29,14 +29,7 @@ export default function WeatherDashboard() {
 
   const isLoading = locationLoading || (coordinates && locationQuery.isPending);
 
-  React.useEffect(() => {
-    if (coordinates) {
-      //   console.log("Coordinates:", coordinates);
-      //   console.log("Location query:", locationQuery);
-      //   console.log("Weather query:", weatherQuery);
-      //   console.log("Forecast query:", forecastQuery);
-    }
-  }, [coordinates, locationQuery]);
+  React.useEffect(() => {}, [coordinates, locationQuery]);
 
   const handleRefresh = () => {
     getLocation();
@@ -103,7 +96,8 @@ export default function WeatherDashboard() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex items-center justify-between">
+      <FavoriteCities />
+      <div className="flex items-center justify-between mb-8">
         <h1 className="text-xl font-bold tracking-tight">
           My location
           {locationQuery.data && ` - ${locationQuery.data[0]?.name}`}
@@ -131,9 +125,9 @@ export default function WeatherDashboard() {
           <HourlyTemperature data={forecastQuery.data} />
         </div>
 
-        <div>
+        <div className="grid gap-6 md:grid-cols-2 items-start">
           <WeatherDetails data={weatherQuery.data} />
-          {/* forecast */}
+          <WeatherForecast data={forecastQuery.data} />
         </div>
       </div>
     </div>

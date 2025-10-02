@@ -1,5 +1,12 @@
 import type { ForecastData } from "@/api/types";
-import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
+import {
+  LineChart,
+  Line,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+  Tooltip,
+} from "recharts";
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import { format } from "date-fns";
 
